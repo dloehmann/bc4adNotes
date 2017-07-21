@@ -14,7 +14,7 @@ import { Headers, Http } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 import {Assignment} from "./domain/assignment";
 import {Observable} from "rxjs";
-import * as data from './acSeries.json';
+import * as data from './../assets/acSeries.json';
 
 // import {require} from "@angular/core";
 // const testUrl = require('acSeries.json');  // URL to web api
