@@ -8,5 +8,5 @@ export class Assignment {
   acType: AcType;
   refType: RefTypes;
   adNote: AdNote;
-
+  hitrate: number;
 }

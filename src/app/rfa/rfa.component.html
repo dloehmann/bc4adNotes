@@ -4,7 +4,7 @@
   </h1>
 </div>
 <div class="row">
-  <div class="col-md-4">
+  <div class="col-md-6">
     <table class="table table-responsive table-striped table-bordered table-hover">
       <tr>
         <th>
@@ -20,7 +20,7 @@
           Assignment Count
         </th>
       </tr>
-      <tr *ngFor="let rfa of rfas" (select)="selectRfa(rfa)">
+      <tr *ngFor="let rfa of rfas" (select)="toggle(rfa)">
         <td>
           {{rfa.fromDate}}
         </td>
@@ -43,8 +43,12 @@
     </table>
   </div>
 
-<div *ngIf="displayedRfa">
+  <div class="row">
+    <div class="col-md-6">
+
+    <div *ngIf="displayModal">
   <new-rfa [rfa]="displayedRfa"></new-rfa>
 </div>
-
+  </div>
+  </div>
 </div>

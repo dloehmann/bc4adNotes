@@ -17,14 +17,18 @@ export class RfaComponent implements OnInit {
   rfas = RFAs;
   @Input() selectedRfa;
   @Input() displayedRfa;
+  @Input() displayModal;
 
   showRfa(rfa: Rfa) {
     this.selectedRfa = rfa;
     this.displayedRfa = this.selectedRfa;
+    this.displayModal = true;
+
   }
 
-  selectRfa(rfa: Rfa) {
-    this.selectedRfa = rfa;
+  toggle(rfa: Rfa) {
+    // this.selectedRfa = rfa;
+    this.displayModal = !this.displayModal;
     this.displayedRfa = undefined;
   }
 

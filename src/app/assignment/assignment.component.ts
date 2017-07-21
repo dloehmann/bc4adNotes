@@ -18,17 +18,17 @@ export class AssignmentComponent implements OnInit {
   actypes: AcType[];
   reftypes: RefTypes[];
   adnotes: AdNote[];
-  assignments: Assignment[];
   selectedRowAdNote: AdNote;
   selectedRowAcType: AcType;
   selectedRefType: RefTypes;
-
+  rfaService : RfaService;
 
 
   constructor(rfaService: RfaService) {
     rfaService.getAcTypes().then(acTypes => this.actypes = acTypes)
     rfaService.getRefTypes().then(refTypes => this.reftypes = refTypes)
     rfaService.getAdNotes().then(adNotes => this.adnotes = adNotes)
+    this.rfaService = rfaService;
   }
 
 
@@ -39,12 +39,15 @@ export class AssignmentComponent implements OnInit {
     this.selectedRowAdNote = index;
   }
 
+
   saveAssignment() {
     var assignment = new Assignment();
     assignment.acType = this.selectedRowAcType;
     assignment.adNote = this.selectedRowAdNote;
     assignment.refType = this.selectedRefType;
+    assignment.hitrate = 42;
     console.log(assignment);
+    this.rfaService.assignmentList.push(assignment);
   }
 
   ngOnInit() {

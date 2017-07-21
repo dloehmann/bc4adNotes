@@ -7,10 +7,21 @@ import {AcType} from "./domain/ac-type";
 import {AdNote} from "./domain/ad-note";
 import {RefTypes} from "./domain/refTypes";
 import { Headers, Http } from '@angular/http';
+// import { acTypesFile } from  './../assets/acSeries.json';  // URL to web api
+// const metaincoinArtifacts = require('../../build/contracts/MetaCoin.json');
+
 
 import 'rxjs/add/operator/toPromise';
+import {Assignment} from "./domain/assignment";
+import {Observable} from "rxjs";
+import * as data from './acSeries.json';
+
+// import {require} from "@angular/core";
+// const testUrl = require('acSeries.json');  // URL to web api
+
 
 @Injectable()
+
 export class RfaService {
 
   private acTypeUrl = 'api/AIRCRAFTS';  // URL to web api
@@ -19,8 +30,17 @@ export class RfaService {
   private newRfasUrl = 'api/NEWRFAs';  // URL to web api
   private rfasUrl = 'api/RFAs';  // URL to web api
   private verificationsUrl = 'api/VERIFICATION';  // URL to web api
+  public assignmentList: Assignment[] = [];
 
-  constructor(private http: Http) { }
+  constructor(private http: Http) {
+    // http.request('assets/acSeries.json')
+    //   .subscribe(res => console.log(res));
+    console.log(data);
+    // this.assignmentList = [];
+    // http.get('/assets/acSeries.json')
+    //   .subscribe(res => console.log(res.json()));
+  }
+
 
 
   getRfas(): Promise<Rfa[]> {
