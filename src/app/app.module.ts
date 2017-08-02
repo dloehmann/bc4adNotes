@@ -14,6 +14,12 @@ import {HttpModule} from "@angular/http";
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService }  from './in-memory-data.service';
 
+import { Web3 }  from 'web3';
+import { contract } from 'truffle-contract';
+
+//const metaincoinArtifacts = require('../../build/contracts/MetaCoin.json');
+//import { metaincoinArtifacts } from '../../build/contracts/MetaCoin.json';
+//import * as metaincoinArtifacts from '../../assets/contracts/MetaCoin.json';
 
 @NgModule({
   declarations: [

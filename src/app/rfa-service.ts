@@ -7,6 +7,8 @@ import {AcType} from "./domain/ac-type";
 import {AdNote} from "./domain/ad-note";
 import {RefTypes} from "./domain/refTypes";
 import { Headers, Http } from '@angular/http';
+import { contract }  from 'truffle-contract';
+
 // import { acTypesFile } from  './../assets/acSeries.json';  // URL to web api
 // const metaincoinArtifacts = require('../../build/contracts/MetaCoin.json');
 
@@ -16,12 +18,13 @@ import {Assignment} from "./domain/assignment";
 import {Observable} from "rxjs";
 import * as data from './../assets/acSeries.json';
 
+import * as adReview from '../assets/contracts/ADReview.json';
+import * as bcConnectorFactory from './bcConnector.js';
+
 // import {require} from "@angular/core";
 // const testUrl = require('acSeries.json');  // URL to web api
 
-
 @Injectable()
-
 export class RfaService {
 
   private acTypeUrl = 'api/AIRCRAFTS';  // URL to web api
@@ -36,17 +39,15 @@ export class RfaService {
     // http.request('assets/acSeries.json')
     //   .subscribe(res => console.log(res));
     console.log(data);
+    console.log(adReview);
     // this.assignmentList = [];
     // http.get('/assets/acSeries.json')
     //   .subscribe(res => console.log(res.json()));
   }
 
-
-
   getRfas(): Promise<Rfa[]> {
-    return this.http.get(this.rfasUrl)
-      .toPromise()
-      .then(response => response.json().data as AcType[])
+    return bcConnectorFactory(contract(adReview))
+      .promiseAcSeries()
       .catch(this.handleError);
   }
 

@@ -23,10 +23,13 @@
     "@angular/router": "^4.0.0",
     "angular-in-memory-web-api": "^0.3.2",
     "bignumber.js": "https://github.com/shayanb/web3.js#develop",
+    "babel-register": "^6.24.1",
     "core-js": "^2.4.1",
     "lht-bootstrap-npm": "^1.0.3",
     "web3": "^0.18.4",
     "rxjs": "^5.1.0",
+    "truffle-contract": "^2.0.5",
+    "web3": "file:web3",
     "zone.js": "^0.8.4"
   },
   "devDependencies": {
